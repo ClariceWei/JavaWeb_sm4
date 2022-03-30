@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 登录过滤filter -->
+    <filter>
+        <filter-name>AuthUser</filter-name>
+        <filter-class>com.sm4.AuthUser</filter-class>
+    </filter>
+    
+     <filter-mapping>
+        <filter-name>AuthUser</filter-name>
+        <url-pattern>/user/*</url-pattern>
+    </filter-mapping>
+    
+    
+    <filter>
+        <filter-name>AuthAdministrator</filter-name>
+        <filter-class>com.sm4.AuthAdministrator</filter-class>
+    </filter>  
+    
+         <filter-mapping>
+        <filter-name>AuthAdministrator</filter-name>
+        <url-pattern>/administrator/*</url-pattern>
+    </filter-mapping>
+  
+    <!-- token servlet -->
+   <servlet>
+    <servlet-name>TokenServlet</servlet-name>
+    <servlet-class>com.sm4.FormServlet</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>TokenServlet</servlet-name>
+    <url-pattern>/regist_do.do</url-pattern>
+  </servlet-mapping>
+
+    <!-- 注册registJDBC servlet -->
+   <servlet>
+    <servlet-name>registJDBC</servlet-name>
+    <servlet-class>com.sm4.registJDBC</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>registJDBC</servlet-name>
+    <url-pattern>/registJDBC.do</url-pattern>
+  </servlet-mapping>
+  
+      <!-- 登录indexJDBC servlet -->
+   <servlet>
+    <servlet-name>loginJDBC</servlet-name>
+    <servlet-class>com.sm4.loginJDBC</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>loginJDBC</servlet-name>
+    <url-pattern>/loginJDBC.do</url-pattern>
+  </servlet-mapping>
+
+      <!-- checkUser servlet -->
+   <servlet>
+    <servlet-name>checkUser</servlet-name>
+    <servlet-class>com.sm4.checkUser</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>checkUser</servlet-name>
+    <url-pattern>/checkUser.do</url-pattern>
+  </servlet-mapping>
+  
+          <!-- 用户checkJDBC servlet -->
+   <servlet>
+    <servlet-name>checkJDBC</servlet-name>
+    <servlet-class>com.sm4.checkJDBC</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>checkJDBC</servlet-name>
+    <url-pattern>/user/checkJDBC.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+        <!-- 用户checkdoJDBC servlet -->
+   <servlet>
+    <servlet-name>checkdoJDBC</servlet-name>
+    <servlet-class>com.sm4.checkdoJDBC</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>checkdoJDBC</servlet-name>
+    <url-pattern>/user/checkdoJDBC.do</url-pattern>
+  </servlet-mapping>
+  
+  
+   <!-- 管理员selectdo servlet -->
+   <servlet>
+    <servlet-name>selectdo</servlet-name>
+    <servlet-class>com.sm4.selectdo</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>selectdo</servlet-name>
+    <url-pattern>/administrator/selectdo.do</url-pattern>
+  </servlet-mapping>
+  
+  
+    <!-- 管理员deleteJDBC servlet -->
+   <servlet>
+    <servlet-name>deleteJDBC</servlet-name>
+    <servlet-class>com.sm4.deleteJDBC</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>deleteJDBC</servlet-name>
+    <url-pattern>/administrator/deleteJDBC.do</url-pattern>
+  </servlet-mapping>
+  
+      <!-- 管理员updateJDBC servlet -->
+   <servlet>
+    <servlet-name>updateJDBC</servlet-name>
+    <servlet-class>com.sm4.updateJDBC</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>updateJDBC</servlet-name>
+    <url-pattern>/administrator/updateJDBC.do</url-pattern>
+  </servlet-mapping>
+  
+  
+        <!-- 管理员updateJDBCdo servlet -->
+   <servlet>
+    <servlet-name>updateJDBCdo</servlet-name>
+    <servlet-class>com.sm4.updateJDBCdo</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>updateJDBCdo</servlet-name>
+    <url-pattern>/administrator/updateJDBCdo.do</url-pattern>
+  </servlet-mapping>
+  
+          <!-- logout servlet -->
+   <servlet>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>com.sm4.logout</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
